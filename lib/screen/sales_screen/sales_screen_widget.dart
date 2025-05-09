@@ -4,8 +4,14 @@ class Product {
   final String title;
   final String price;
   final String imageUrl;
+  final List<String> weights; // ✅ New field
 
-  Product({required this.title, required this.price, required this.imageUrl});
+  Product({
+    required this.title,
+    required this.price,
+    required this.imageUrl,
+    required this.weights,
+  });
 }
 
 // Section Title Widget
@@ -17,21 +23,27 @@ Widget sectionTitle(String title) {
   );
 }
 
+// Horizontal Scrollable Product List
 Widget productList(
   List<Product> products,
   Function(Product) onTap, {
   required List<Product> selectedProducts,
 }) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Row(
-      children: products.map((product) {
-        bool isSelected = selectedProducts.contains(product);
+  return SizedBox(
+    height: 200, // same height as vertical items
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: products.length,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      itemBuilder: (context, index) {
+        final product = products[index];
+        final isSelected = selectedProducts.contains(product);
+
         return GestureDetector(
           onTap: () => onTap(product),
           child: Container(
-            width: 100,
-            margin: const EdgeInsets.only(right: 8), // spacing between items
+            width: 140,
+            margin: const EdgeInsets.only(right: 12),
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -42,57 +54,58 @@ Widget productList(
             ),
             child: Column(
               children: [
-                Image.asset(product.imageUrl, height: 50),
-                Text(product.title),
+                Image.asset(product.imageUrl, height: 100),
+                const SizedBox(height: 8),
+                Text(product.title,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                const SizedBox(height: 4),
                 Text(product.price),
               ],
             ),
           ),
         );
-      }).toList(),
+      },
     ),
   );
 }
 
-// Verti
+// Vertical Scrollable Grid Product List with individual vertical scroll
 Widget verticalProductList({
   required List<Product> products,
   required List<Product> selectedProducts,
   required Function(Product) onProductTap,
 }) {
   return SizedBox(
-    height: 500,
+    height: 400, // or any height you want
     child: GridView.builder(
       scrollDirection: Axis.vertical,
       padding: const EdgeInsets.all(12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
-        childAspectRatio: 0.75,
+        crossAxisCount: 6,
+        childAspectRatio: 0.7,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
         final product = products[index];
-        final isSelected = selectedProducts.any(
-          (item) => item.title == product.title,
-        );
+        final isSelected =
+            selectedProducts.any((item) => item.title == product.title);
 
         return GestureDetector(
           onTap: () => onProductTap(product),
           child: Container(
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
               color: isSelected ? Colors.grey.shade100 : Colors.white,
               border: Border.all(
                 color: isSelected ? Colors.blue : Colors.grey.shade300,
               ),
-              borderRadius: BorderRadius.circular(10),
             ),
-            padding: const EdgeInsets.all(8),
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(product.imageUrl, height: 150),
+                Image.asset(product.imageUrl, height: 100),
                 const SizedBox(height: 8),
                 Text(product.title,
                     style: const TextStyle(fontWeight: FontWeight.bold)),

@@ -120,14 +120,15 @@ class _TopMenuBarState extends State<TopMenuBar> {
           offset: const Offset(0, 40),
           child: Material(
             elevation: 4,
-            color: Colors.lightBlue[100], // Set background color here
+            color: const Color.fromARGB(
+                255, 252, 251, 251), // Set background color here
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
                   title: const Text(
                     "Add Sales",
-                    style: TextStyle(color: Colors.white), // White text
+                    style: TextStyle(color: Colors.blue), // White text
                   ),
                   onTap: () {
                     _removeDropdown();

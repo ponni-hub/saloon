@@ -5,8 +5,13 @@ import 'package:saloon_app/screen/sales_screen/sales_payment.dart';
 class OrderItem {
   final Product product;
   int quantity;
+  String selectedWeight;
 
-  OrderItem({required this.product, this.quantity = 1});
+  OrderItem({
+    required this.product,
+    this.quantity = 1,
+    required this.selectedWeight,
+  });
 }
 
 class SalesScreen extends StatefulWidget {
@@ -19,105 +24,150 @@ class SalesScreen extends StatefulWidget {
 class _SalesScreenState extends State<SalesScreen> {
   final List<Product> popularSales = [
     Product(
-        title: 'Shampoo',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'Shampoo',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'title1',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'title1',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'title2',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'title2',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'title5',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'title5',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'title6',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'title6',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'title4',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'title4',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'test',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'test',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'dfghth',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'dfghth',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'fedgtb',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'fedgtb',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
   ];
 
   final List<Product> beautyProducts = [
     Product(
-        title: 'vgbrb',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'vgbrb',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'vgngxdf',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'vgngxdf',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'dfgyrnb',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'dfgyrnb',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'gfvhtn',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'gfvhtn',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'fvtyhy',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'fvtyhy',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'bcdskjj',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'bcdskjj',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'cbjsfhj',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'cbjsfhj',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'cbdjfh',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'cbdjfh',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'cfsj',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'cfsj',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'csbjhfbe',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'csbjhfbe',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'cdnkje',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'cdnkje',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'cbdjfh',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'cbdjfh',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'ndknk',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'ndknk',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
     Product(
-        title: 'xnbhvjh',
-        price: 'BHD 150.00/-',
-        imageUrl: 'assets/images/smoothies.jpg'),
+      title: 'xnbhvjh',
+      price: 'BHD 150.00/-',
+      imageUrl: 'assets/images/smoothies.jpg',
+      weights: ['50g', '100g'],
+    ),
   ];
 
   List<OrderItem> selectedOrders = [];
   bool showPaymentView = false;
-
   void onProductSelected(Product product) {
     setState(() {
       final index = selectedOrders
@@ -125,7 +175,10 @@ class _SalesScreenState extends State<SalesScreen> {
       if (index != -1) {
         selectedOrders.removeAt(index);
       } else {
-        selectedOrders.add(OrderItem(product: product));
+        selectedOrders.add(OrderItem(
+          product: product,
+          selectedWeight: product.weights.first, // ✅ set default weight
+        ));
       }
     });
   }
@@ -315,8 +368,8 @@ class _SalesScreenState extends State<SalesScreen> {
                                         fontWeight: FontWeight.bold)),
                                 const SizedBox(height: 10),
                                 Container(
-                                  height:
-                                      300, // ✅ Fix: Give height instead of using Expanded
+                                  height: 300,
+                                  padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
                                     border:
                                         Border.all(color: Colors.grey.shade300),
@@ -326,19 +379,125 @@ class _SalesScreenState extends State<SalesScreen> {
                                     itemCount: selectedOrders.length,
                                     itemBuilder: (context, index) {
                                       final item = selectedOrders[index];
-                                      return ListTile(
-                                        leading: Image.asset(
-                                            item.product.imageUrl,
-                                            width: 40),
-                                        title: Text(item.product.title),
-                                        subtitle: Text("Qty: ${item.quantity}"),
-                                        trailing: IconButton(
-                                          icon: const Icon(Icons.remove_circle),
-                                          onPressed: () {
-                                            setState(() {
-                                              selectedOrders.removeAt(index);
-                                            });
-                                          },
+                                      return Container(
+                                        margin:
+                                            const EdgeInsets.only(bottom: 12),
+                                        padding: const EdgeInsets.all(12),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.grey.shade300),
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          color: Colors.white,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            // Product Image
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.asset(
+                                                item.product.imageUrl,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 12),
+
+                                            // Product Info & Controls
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    item.product.title,
+                                                    style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 6),
+                                                  const Text(
+                                                    'Quantity:',
+                                                    style: TextStyle(
+                                                      color: Colors.purple,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(height: 4),
+
+                                                  // Weight options (you can adapt from item.product.weights)
+                                                  Wrap(
+                                                    spacing: 8,
+                                                    children: item
+                                                        .product.weights
+                                                        .map<Widget>((weight) {
+                                                      final isSelected =
+                                                          item.selectedWeight ==
+                                                              weight;
+                                                      return ChoiceChip(
+                                                        label: Text(weight),
+                                                        selected: isSelected,
+                                                        onSelected: (_) {
+                                                          setState(() {
+                                                            item.selectedWeight =
+                                                                weight;
+                                                          });
+                                                        },
+                                                        selectedColor: Colors
+                                                            .purple.shade100,
+                                                        labelStyle: TextStyle(
+                                                          color: isSelected
+                                                              ? Colors.purple
+                                                              : Colors.black,
+                                                        ),
+                                                      );
+                                                    }).toList(),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+
+                                            // Quantity Controls
+                                            Column(
+                                              children: [
+                                                IconButton(
+                                                  icon: const Icon(Icons
+                                                      .remove_circle_outline),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      if (item.quantity > 1) {
+                                                        item.quantity--;
+                                                      } else {
+                                                        selectedOrders
+                                                            .removeAt(index);
+                                                      }
+                                                    });
+                                                  },
+                                                ),
+                                                Text(
+                                                  '${item.quantity}',
+                                                  style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                IconButton(
+                                                  icon: const Icon(
+                                                      Icons.add_circle_outline),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      item.quantity++;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
