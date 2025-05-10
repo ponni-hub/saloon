@@ -123,7 +123,7 @@ class _AddSalesPageState extends State<AddSalesPage> {
                                   borderRadius: BorderRadius.circular(10),
                                   image: const DecorationImage(
                                     image: AssetImage(
-                                        "assets/images/smoothies.jpg"), // replace with your image
+                                        "assets/images/bty9.jpg"), // replace with your image
                                     fit: BoxFit.cover,
                                   ),
                                 ),
