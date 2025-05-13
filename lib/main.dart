@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:saloon_app/screen/Profile_screen/profile_screen.dart';
+import 'package:saloon_app/screen/Services_screen/services_screen.dart';
+import 'package:saloon_app/screen/calender_screen/calendar_screen.dart';
+import 'package:saloon_app/screen/client_screen/clients_screen.dart';
 import 'package:saloon_app/screen/sales_screen/sales_addsales.dart';
 import 'package:saloon_app/screen/sales_screen/sales_screen.dart';
 
@@ -37,17 +41,13 @@ class _HomePageState extends State<HomePage> {
       case 'Sale':
         return SalesScreen();
       case 'Calendar':
-        return const Center(
-            child: Text('Calendar Page', style: TextStyle(fontSize: 24)));
+        return CalendarScreen();
       case 'Clients':
-        return const Center(
-            child: Text('Clients Page', style: TextStyle(fontSize: 24)));
+        return ClientsScreen();
       case 'Services':
-        return const Center(
-            child: Text('Services Page', style: TextStyle(fontSize: 24)));
-      case 'Messages':
-        return const Center(
-            child: Text('Messages Page', style: TextStyle(fontSize: 24)));
+        return ServicesScreen();
+      case 'Profile':
+        return ProfileScreen();
       case 'AddSale':
         return const AddSalesPage();
       default:
